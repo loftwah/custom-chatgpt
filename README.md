@@ -18,3 +18,53 @@ Key features of the GPT-4 Enhanced Knowledge Base Application include:
 8. Model Updates and Improvements: The application tracks and adopts the latest GPT model improvements, ensuring users can take advantage of advancements in AI research.
 
 With the GPT-4 Enhanced Knowledge Base Application, users can harness the full potential of GPT-4 in combination with their own codebase, documentation, and knowledge base, yielding accurate and efficient responses while overcoming the limitations of GPT-4.
+
+## API
+
+Here's an API design for your GPT-4 Enhanced Knowledge Base Application:
+
+Base URL: `https://api.your-application.com/v1`
+
+Authentication: Bearer token or API key
+
+Endpoints:
+
+1. `/ingest` (POST)
+
+   Ingests data (codebase, documentation, or knowledge base) into Weaviate and PineconeDB.
+
+   Request body parameters:
+
+   * `dataType`: Type of data being ingested (e.g., codebase, documentation, knowledge\_base)
+   * `data`: The content to be ingested
+
+   Response:
+
+   * `status`: Success or failure status of the ingestion
+   * `message`: Informational message about the ingestion process
+
+2. `/query` (POST)
+
+   Processes a query and returns the response.
+
+   Request body parameters:
+
+   * `query`: The user's query or input text
+   * `temperature`: (Optional) A value to control the randomness of the generated response
+   * `top_p`: (Optional) A value to control the focus of the generated response
+
+   Response:
+
+   * `status`: Success or failure status of the query processing
+   * `response`: The generated response based on the input query
+
+3. `/usage` (GET)
+
+   Retrieves API usage statistics.
+
+   Response:
+
+   * `status`: Success or failure status of the request
+   * `usage`: An object containing usage statistics (e.g., total requests, total tokens, average response time)
+
+This API design allows you to build a GPT-4 Enhanced Knowledge Base Application that efficiently integrates GPT-4 with your codebase, documentation, and knowledge base, addressing GPT-4's limitations and providing accurate and efficient responses.
