@@ -23,7 +23,7 @@ With the GPT-4 Enhanced Knowledge Base Application, users can harness the full p
 
 Here's an API design for your GPT-4 Enhanced Knowledge Base Application:
 
-Base URL: `https://api.your-application.com/v1`
+Base URL: `https://customgpt.deanlofts.xyz/v1`
 
 Authentication: Bearer token or API key
 
@@ -68,3 +68,45 @@ Endpoints:
    * `usage`: An object containing usage statistics (e.g., total requests, total tokens, average response time)
 
 This API design allows you to build a GPT-4 Enhanced Knowledge Base Application that efficiently integrates GPT-4 with your codebase, documentation, and knowledge base, addressing GPT-4's limitations and providing accurate and efficient responses.
+
+### Running the Application
+
+1. Clone this repository:
+
+```bash
+git clone https://github.com/loftwah/custom-chatgpt.git
+cd custom-chatgpt
+```
+
+1. Build the Docker image:
+
+`docker build -t gpt4-enhanced-kb-app .`
+
+1. Run the Docker container:
+
+`docker run -it --rm --name gpt4-enhanced-kb-app-instance gpt4-enhanced-kb-app`
+
+1. After the container starts, you can interact with the GPT-4 Enhanced Knowledge Base Application CLI.
+
+### CLI Usage Examples
+
+1. Ingest a codebase from a file:
+
+```python
+python gpt4_cli.py ingest --data-type codebase codebase_file.txt
+```
+
+1. Process a query with custom temperature and top-p settings:
+
+```bash
+python gpt4_cli.py query --temperature 0.8 --top-p 0.9 "What is the purpose of this function?"
+```
+
+1. Retrieve API usage statistics:
+
+python gpt4_cli.py usage
+
+## Acknowledgments
+
+* OpenAI for the GPT-4 model
+* Weaviate, PineconeDB, and MindsDB for data integration and processing
